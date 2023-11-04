@@ -5,7 +5,7 @@ export const Cart = createSlice({
     initialState: [],
     reducers: {
         set(state, { payload }) {
-            state; PushManager(payload)
+            state.push(payload)
         },
         remove(state, { payload }) {
             state.splice(payload, 1)

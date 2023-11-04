@@ -5,7 +5,7 @@ export const Product = createSlice({
     initialState: [],
     reducers: {
         set(state, { payload }) {
-            state; PushManager(payload)
+            state.push(payload)
         },
         replace(_state, { payload }) {
             return payload
