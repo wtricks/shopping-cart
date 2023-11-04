@@ -23,7 +23,7 @@ export default function Home() {
     const onClick = (id, index) => {
         dispatch(set(id))
 
-        alert('Product \'' + products[index].title + '\' is added in your cart.')
+        alert('Product \'' + products.filter(e =>e.id==id)[0].title + '\' is added in your cart.')
     }
 
     useEffect(() => {
