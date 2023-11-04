@@ -14,9 +14,10 @@
 .products ul {
     list-style: none;
     display: flex;
-    max-width: 1200px;
+    max-width: 1260px;
     width: 100%;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .products li {
@@ -30,6 +31,7 @@
     flex-direction: column;
     flex: 1 1 180px;
     justify-content: space-between;
+    max-width: 160px;
 }
 
 .products li img {

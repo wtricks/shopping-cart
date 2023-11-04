@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
+
 import { replace } from '../store/product'
 import { set } from '../store/cart'
+
 import Product from '../components/Product'
 import Loader from "../components/Loading";
+
 import './Home.css'
 
 export default function Home() {
@@ -17,11 +20,18 @@ export default function Home() {
         return products.filter(el => !carts.includes(el.id))
     }
 
-    const onClick = (id) => {
+    const onClick = (id, index) => {
         dispatch(set(id))
+
+        alert('Product \'' + products[index].title + '\' is added in your cart.')
     }
 
     useEffect(() => {
+        if (products.length > 0) {
+            setLoading(false)
+            return
+        }
+
         fetch("https://dummyjson.com/products")
             .then(e => e.json())
             .then(data => {
@@ -39,10 +49,11 @@ export default function Home() {
             <Loader active={loading} />
             <div className="products">
                 <ul>
-                    {getProduct().map(product => (
+                    {getProduct().map((product, index) => (
                         <Product
                             key={product.id}
                             id={product.id}
+                            index={index}
                             image={product.thumbnail}
                             title={product.title}
                             isAdded={false}

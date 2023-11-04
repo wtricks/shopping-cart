@@ -9,9 +9,12 @@ export const Cart = createSlice({
         },
         remove(state, { payload }) {
             state.splice(payload, 1)
+        },
+        reset() {
+            return []
         }
     }
 })
 
-export const { remove, set } = Cart.actions
+export const { remove, set, reset } = Cart.actions
 export default Cart.reducer
