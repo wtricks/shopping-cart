@@ -12,10 +12,10 @@ export default function Cart() {
     const carts = useSelector(state => state.cart)
     const dispatch = useDispatch()
 
-    const onClick = (id) => {
+    const onClick = (id,index) => {
         dispatch(remove(carts.findIndex(el => el == id)))
-
-        alert('Product \'' + products[products.findIndex(el => el.id == id)].title + '\' is removed from your cart.')
+        setProduct(product.filter(el => el.id != id))
+        alert('Product \'' + product[index].title + '\' is removed from your cart.')
     }
 
     const checkout = () => {
